@@ -1,3 +1,9 @@
+# Szkoła Reacta 2.0 // School of React
+
+A repository in which I'll be storing entries for 6 weeks React Workshop - "Szkoła Reacta".
+
+21.04: Week 1 exercise done.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
