@@ -1,34 +1,35 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+//Import { Text } from "./ui/Text/Text" works as intended, why doesn't it get indirect index though?
+
+import { Button, Header, Text } from "./ui";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <p className="text-blue-900">Hello World!</p>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header className="text-5xl my-2">
+        React + Vite + TailwindCss Playground
+      </Header>
+      <Text>Hi there, pick a button! They're all very fun!</Text>
+      <Button
+        label="Keep calm and carpe diem!"
+        onClick={() => {
+          alert("Always look at the bright side of life!");
+        }}
+      />
+      <Button
+        label="SHUT UP AND TAKE MY MONEY!!!"
+        onClick={() => {
+          alert("You shall not pass!!!");
+        }}
+        className=" bg-red-700 text-sm border-red-200 hover:bg-red-600"
+      />
+      <Button
+        label="#SpreadLove"
+        onClick={() => {
+          alert("Peace");
+        }}
+        className=" bg-green-500 border-green-900 font-thin hover:bg-green-300 hover:text-black"
+      />
     </>
   );
 }
