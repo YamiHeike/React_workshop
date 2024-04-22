@@ -1,6 +1,0 @@
-1. Opisz, w dwóch-trzech zdaniach jak działa React w projekcie React.js.
-React umożliwia programiście tworzenie wykorzystanie podejścia deklaratywnego.
-Dzięki niemu, wystarczy opisać w kodzie oczekiwany stan końcowy drzewa DOM za pomocą funkcji-komponentów oraz JSX/TSX. Wirtualny DOM Reacta przekształci rezultat takiego działania w funkcjonalny model DOM z poprawnie działającym JavaScriptem uwzględniającym logikę komponentów.
-2.Wyjaśnij cel typu ComponentProps
-Typ ComponentProps ułatwia typowanie propów komponentów zwracających konkretny tag HTMLowy. 
-Po sparametryzowaniu typu ComponentProps pod konkretny element (np. button, input, select, etc.), nie trzeba typować każdego z możliwych propu tego elementu.
