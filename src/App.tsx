@@ -2,13 +2,13 @@
 
 import { Button, Header, Text, Select } from "./ui";
 import "./App.css";
-import { Generator } from "./components/Generator";
+import { Dynamic } from "./components/Dynamic";
 import { FormWizard, History } from "./components";
 
 function App() {
   return (
     <>
-      <History />
+      <Dynamic />
     </>
   );
 }
