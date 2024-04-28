@@ -21,5 +21,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: "No zarycz, no!",
+    className:
+      "bg-red-200 px-4 py-2 rounded border-2 border-red-600 text-center",
   },
 };

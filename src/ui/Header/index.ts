@@ -1,2 +1,2 @@
 import { Header } from "./Header";
-export { Header } from "./Header";
+export * from "./Header";
