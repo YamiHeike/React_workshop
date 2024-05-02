@@ -4,27 +4,14 @@
 import "./App.css";
 //import { Dynamic } from "./components/Dynamic";
 import {
-  /*FormWizard,
-  History,*/
-  ThemeContextProvider,
-  ThemeSwitcher,
+  FormWizard,
+  /*History,*/
 } from "./components";
 import { AuthInfo } from "./components/Auth/AuthInfo";
 import { AuthContextProvider } from "./components/Auth/AuthContext";
 
 function App() {
-  return (
-    <>
-      {
-        <ThemeContextProvider>
-          <ThemeSwitcher />
-          <AuthContextProvider>
-            <AuthInfo />
-          </AuthContextProvider>
-        </ThemeContextProvider>
-      }
-    </>
-  );
+  return <>{<FormWizard />}</>;
 }
 
 export default App;
