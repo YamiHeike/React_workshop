@@ -16,7 +16,7 @@ export const Button = ({
   return (
     <button
       className={cn(
-        "mx-2 my-3 px-4 py-3 text-white bg-blue-600 text-sm border-blue-200 rounded-md hover:bg-blue-500 shadow-xl disabled:bg-blue-300 disabled:cursor-not-allowed",
+        "mx-2 my-3 px-4 py-3 text-white bg-blue-600 text-sm border-blue-200 rounded-md hover:bg-blue-500 shadow-xl disabled:bg-blue-300 disabled:cursor-not-allowed dark:bg-green-600 hover:dark:bg-green-200 hover:dark:text-black",
         className
       )}
       onClick={onClick}
