@@ -1,11 +1,13 @@
 import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
 import { Button, Input, Text } from "../../ui";
+import { type ValidationSchemaType, ValidationSchema } from "./types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-type Data = {
+/*type formData = {
   firstName: string;
   lastName: string;
   hobbies: { name: string }[];
-};
+};*/
 
 export const Dynamic = () => {
   const {
@@ -13,14 +15,16 @@ export const Dynamic = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<Data>();
+  } = useForm<ValidationSchemaType>({
+    resolver: zodResolver(ValidationSchema),
+  });
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "hobbies",
   });
 
-  const onSubmit: SubmitHandler<Data> = (data) => {
+  const onSubmit: SubmitHandler<ValidationSchemaType> = (data) => {
     console.log("Form data:", data);
   };
 
@@ -34,9 +38,13 @@ export const Dynamic = () => {
         <Input
           label="First name"
           {...register("firstName", { required: true })}
+          error={errors.firstName}
         />
-        <Input label="LastName" {...register("lastName", { required: true })} />
-
+        <Input
+          label="LastName"
+          {...register("lastName", { required: true })}
+          error={errors.lastName}
+        />
         <div className="border-2 border-slate-300 mt-8 rounded px-2 py-2 bg-white shadow-md">
           <Text>Hobbies</Text>
           {fields.map((field, idx) => (
@@ -45,15 +53,18 @@ export const Dynamic = () => {
                 label=""
                 placeholder="Enter your hobby"
                 {...register(`hobbies.${idx}.name`, { required: true })}
+                error={errors.hobbies?.[idx]?.name}
               />
               <Button
                 label="Delete"
                 onClick={() => remove(idx)}
                 className="py-1 px-2 bg-amber-500 text-white"
               />
-              {errors.hobbies && errors.hobbies[idx] && (
-                <Text>Enter the hobby</Text>
-              )}
+              {/*errors.hobbies && errors.hobbies[idx] && (
+                <Text className="text-red-600">
+                  {errors.hobbies[idx]?.name?.message}
+                </Text>
+              )*/}
             </div>
           ))}
         </div>
