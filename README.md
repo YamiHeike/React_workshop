@@ -2,7 +2,7 @@
 
 A repository in which I'll be storing entries for 6 weeks React Workshop - "Szkoła Reacta".
 
-21.04: Week 1 exercise done.
+
 
 # React + TypeScript + Vite
 
