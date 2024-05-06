@@ -2,7 +2,7 @@ import { MouseEventHandler, useState } from "react";
 import { Input, Text, Button } from "../../ui";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-type Data = {
+type formData = {
   firstName: string;
   lastName: string;
   birthDate: string;
@@ -15,7 +15,7 @@ export const FormWizard = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Data>();
+  } = useForm<formData>();
 
   const inputs = [
     [
@@ -86,7 +86,7 @@ export const FormWizard = () => {
     }
   };
 
-  const handleFormSubmit: SubmitHandler<Data> = (data) => {
+  const handleFormSubmit: SubmitHandler<formData> = (data) => {
     if (readyToSubmit) {
       console.log(
         `First name: ${data.firstName}\nLast name: ${data.lastName}\nDate of Birth: ${data.birthDate}\nHobby: ${data.hobby}`
