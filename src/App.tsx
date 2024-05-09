@@ -1,17 +1,15 @@
-//Import { Text } from "./ui/Text/Text" works as intended, why doesn't it get indirect index though?
-
 import "./App.css";
 import { ThemeContextProvider, ThemeSwitcher } from "./components/Theme";
-import { AuthContextProvider, AuthInfo } from "./components";
+import { /*AuthContextProvider, AuthInfo,*/ Stepper } from "./components";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   return (
     <>
       <ThemeContextProvider>
         <ThemeSwitcher />
-        <AuthContextProvider>
-          <AuthInfo />
-        </AuthContextProvider>
+        <RouterProvider router={router}></RouterProvider>
       </ThemeContextProvider>
     </>
   );

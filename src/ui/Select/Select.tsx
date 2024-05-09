@@ -1,5 +1,5 @@
 import { mergeOptions } from "@apollo/client";
-import { ComponentProps } from "react";
+import { ComponentProps, useId } from "react";
 import { v4 as uuid } from "uuid";
 
 type Props = {
@@ -11,10 +11,14 @@ export const Select = ({ options, label, ...rest }: Props) => {
   const id = uuid();
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id} className="dark:text-slate-300 mx-2">
+        {label}
+      </label>
       <select id={id} {...rest}>
         {options.map((opt) => (
-          <option value={opt}>{opt}</option>
+          <option value={opt} key={useId()}>
+            {opt}
+          </option>
         ))}
       </select>
     </>

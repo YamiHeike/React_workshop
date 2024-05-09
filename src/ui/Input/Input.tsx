@@ -9,7 +9,9 @@ export const Input = forwardRef(
     const id = useId();
     return (
       <>
-        <label htmlFor={id}>{label}</label>
+        <label htmlFor={id} className="dark:text-slate-300 mx-2">
+          {label}
+        </label>
         <input
           ref={ref}
           className="border-2 border-blue-800 rounded"
