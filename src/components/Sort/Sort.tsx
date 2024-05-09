@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export type User = {
   id: number;
@@ -23,21 +23,7 @@ type SortProps = {
   data: Users;
 };
 
-//sortBy: sortOptions;
-//sortOrder: sortDirections;
-
-/* Body of useAuth for reference:
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const toggleValue = () => setIsLoggedIn((val) => !val);
-  const logIn = () => setIsLoggedIn(true);
-  const logOut = () => setIsLoggedIn(false);
-
-  return { isLoggedIn, toggleValue, logIn, logOut };
-*/
-
 //TODO: introduce state to here, for sorting management
-
-//{ data, sortBy, sortOrder }: SortProps
 
 export const useSort = ({ data }: SortProps) => {
   const [sortOrder, setSortOrder] = useState(sortDirections.ASC);
@@ -51,28 +37,36 @@ export const useSort = ({ data }: SortProps) => {
     setSortBy(key);
   };
 
+  let sortedData = [...data];
+
   const sortData = () => {
     if (sortOrder === sortDirections.ASC) {
       if (sortBy === sortOptions.ID) {
-        setUserData(data.sort((a, b) => a.id - b.id));
+        sortedData = sortedData.sort((a, b) => a.id - b.id);
       } else if (sortBy === sortOptions.NICKNAME) {
-        setUserData(
-          data.sort((a, b) => {
-            return a.nickname.localeCompare(b.nickname);
-          })
-        );
+        sortedData = sortedData.sort((a, b) => {
+          return a.nickname.localeCompare(b.nickname);
+        });
       } else if (sortBy === sortOptions.AGE) {
-        setUserData(data.sort((a, b) => a.age - b.age));
+        sortedData = sortedData.sort((a, b) => a.age - b.age);
       }
     } else if (sortOrder === sortDirections.DESC) {
       if (sortBy === sortOptions.ID) {
-        setUserData(data.sort((a, b) => b.id - a.id));
+        sortedData = sortedData.sort((a, b) => b.id - a.id);
       } else if (sortBy === sortOptions.NICKNAME) {
-        setUserData(data.sort((a, b) => b.nickname.localeCompare(a.nickname)));
+        sortedData = sortedData.sort((a, b) =>
+          b.nickname.localeCompare(a.nickname)
+        );
       } else if (sortBy === sortOptions.AGE) {
-        setUserData(data.sort((a, b) => b.age - a.age));
+        sortedData = sortedData.sort((a, b) => b.age - a.age);
       }
     }
+    setUserData(sortedData);
   };
+
+  useEffect(() => {
+    sortData();
+  }, [sortOrder, sortBy]);
+
   return { userData, order, sortKey, sortData };
 };

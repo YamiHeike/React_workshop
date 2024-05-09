@@ -1,7 +1,9 @@
 import { type Users } from "./Sort";
-import { Button, Select, Text } from "../../ui";
+import { Button, Text } from "../../ui";
 import { sortOptions, sortDirections, useSort } from "./Sort";
-import { ChangeEventHandler, MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
+import ArrowDownIcon from "@heroicons/react/24/outline/ArrowDownIcon";
+import ArrowUpIcon from "@heroicons/react/24/outline/ArrowUpIcon";
 
 export const UserList = () => {
   const users: Users = [
@@ -22,8 +24,6 @@ export const UserList = () => {
     },
   ];
 
-  //TODO: handleClick - sorting function
-
   const { userData, order, sortKey, sortData } = useSort({ data: users });
 
   const handleSortByAge: MouseEventHandler<HTMLButtonElement> = () => {
@@ -41,18 +41,39 @@ export const UserList = () => {
     sortData();
   };
 
-  const handleChange: ChangeEventHandler<HTMLSelectElement> = (evt) => {
-    let direction = evt.target.value;
-    if (direction === "ASC") {
-      order(sortDirections.ASC);
-    } else if (direction === "DESC") {
-      order(sortDirections.DESC);
-    }
+  const sortAscending: MouseEventHandler<SVGSVGElement> = () => {
+    order(sortDirections.ASC);
+  };
+
+  const sortDescending: MouseEventHandler<SVGSVGElement> = () => {
+    order(sortDirections.DESC);
   };
 
   return (
     <div className="my-3">
       <Text className="text-5xl ">Current Users</Text>
+      <div className="flex flex-col items-center justify-center my-4">
+        <Text className="text-2xl font-thin">
+          Would you like to sort this list?
+        </Text>
+        <div className="flex">
+          <ArrowUpIcon
+            className="h-5 w-5 cursor-pointer dark:text-slate-300"
+            onClick={sortAscending}
+          />
+          <ArrowDownIcon
+            className="h-5 w-5 cursor-pointer dark:text-slate-300"
+            onClick={sortDescending}
+          />
+        </div>
+
+        <div>
+          <Button label="Sort by Nickname" onClick={handleSortByNickname} />
+          <Button label="Sort by Id" onClick={handleSortById} />
+          <Button label="Sort by Age" onClick={handleSortByAge} />
+        </div>
+      </div>
+
       <ul>
         {userData.map((user) => (
           <li key={user.id} className="dark:text-slate-300">
@@ -63,25 +84,7 @@ export const UserList = () => {
         ))}
       </ul>
 
-      {
-        <div className="flex flex-col items-center justify-center my-4">
-          <Text className="text-2xl font-thin">
-            Would you like to sort this list?
-          </Text>
-          <div>
-            <Select
-              options={Object.keys(sortDirections)}
-              label="Sort order"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Button label="Sort by Nickname" onClick={handleSortByNickname} />
-            <Button label="Sort by Id" onClick={handleSortById} />
-            <Button label="Sort by Age" onClick={handleSortByAge} />
-          </div>
-        </div>
-      }
+      {}
     </div>
   );
 };
