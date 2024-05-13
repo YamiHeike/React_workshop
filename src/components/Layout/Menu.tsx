@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes";
+import { Basket } from "../../features";
+import { CustomerContextProvider, CustomerSwitcher } from "../Customer";
+import { Logo } from "../Logo";
 
 type Props = {
   to: string;
@@ -27,7 +30,10 @@ export const Menu = () => {
   return (
     <div>
       <nav>
-        <ul className="flex">
+        <ul className="flex items-center">
+          <li className="mr-3">
+            <Logo />
+          </li>
           <li className="mr-3">
             <WsNavLink to={routes.HOME.path}>Home</WsNavLink>
           </li>
@@ -46,7 +52,16 @@ export const Menu = () => {
           <li className="mr-3">
             <WsNavLink to={routes.USERLIST.path}>User List</WsNavLink>
           </li>
+          <li className="mr-3">
+            <WsNavLink to={routes.PRODUCTS.path}>Products</WsNavLink>
+          </li>
+          <li className="mr-3">
+            <Basket />
+          </li>
         </ul>
+        <div className="flex items-start">
+          <CustomerSwitcher />
+        </div>
       </nav>
     </div>
   );

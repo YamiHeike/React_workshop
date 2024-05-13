@@ -1,6 +1,6 @@
-import { type Users } from "./Sort";
+import { type Users } from "../../hooks/useSort";
 import { Button, Text } from "../../ui";
-import { sortOptions, sortDirections, useSort } from "./Sort";
+import { sortOptions, sortDirections, useSort } from "../../hooks/useSort";
 import { MouseEventHandler } from "react";
 import ArrowDownIcon from "@heroicons/react/24/outline/ArrowDownIcon";
 import ArrowUpIcon from "@heroicons/react/24/outline/ArrowUpIcon";

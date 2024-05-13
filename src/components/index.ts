@@ -7,3 +7,5 @@ export * from "./Theme";
 export * from "./Stepper";
 export * from "./Layout";
 export * from "./Sort";
+export * from "./ErrorBoundary";
+export * from "./Customer";

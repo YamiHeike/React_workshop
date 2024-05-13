@@ -18,15 +18,19 @@ export const ThemeSwitcher = () => {
 
   const icon =
     theme === Theme.DARK ? (
-      <SunIcon
-        className="h-5 w-5 text-green-400 cursor-pointer"
-        onClick={handleClick}
-      />
+      <div className="flex justify-end">
+        <SunIcon
+          className="h-5 w-5 text-green-400 cursor-pointer"
+          onClick={handleClick}
+        />
+      </div>
     ) : (
-      <MoonIcon
-        className="h-5 w-5 text-blue-500 cursor-pointer"
-        onClick={handleClick}
-      />
+      <div className="flex justify-end">
+        <MoonIcon
+          className="h-5 w-5 text-blue-500 cursor-pointer"
+          onClick={handleClick}
+        />
+      </div>
     );
 
   return <div className="mb-4">{icon}</div>;
