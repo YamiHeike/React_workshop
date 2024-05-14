@@ -62,12 +62,12 @@ export const History = () => {
     <>
       <form
         action=""
-        className="flex flex-col items-center border-2 border-slate-200 w-fit p-5 mx-auto my-3 rounded-md  shadow-md"
+        className="flex flex-col items-center border-2 border-slate-200 w-fit p-5 mx-auto my-3 rounded-md  shadow-md dark:border-green-900"
       >
         <Input label="Enter your name: " ref={nameRef} onBlur={handleBlur} />
         <Button
           label="Save name"
-          className="border-2 border-amber-500 bg-amber-600 py-1 px-4 my-2 rounded text-white hover:bg-amber-500 hover:shadow-md shadow-sm hover:font-bold hover:cursor-pointer "
+          className="border-2 border-amber-500 bg-amber-600 py-1 px-4 my-2 rounded text-white hover:bg-amber-500 hover:shadow-md shadow-sm hover:font-bold hover:cursor-pointer dark:border-green-700"
           onClick={saveToHistory}
         />
       </form>
@@ -84,7 +84,9 @@ export const History = () => {
       <ul>
         {history.map((item, index) => (
           <li key={index}>
-            {item.value} - {new Date(item.time).toLocaleString()}{" "}
+            <Text>
+              {item.value} - {new Date(item.time).toLocaleString()}{" "}
+            </Text>
           </li>
         ))}
       </ul>

@@ -58,7 +58,7 @@ export const Generator = () => {
     <>
       <div className="flex flex-col items-center">
         <Select
-          label="Choose a component to display: "
+          label={"Choose a component to display:"}
           options={Object.keys(componentMapping)}
           onChange={handleChange}
           className="mx-1 my-2"
@@ -78,7 +78,9 @@ export const Generator = () => {
               onSubmit={handleSubmit(getTextProps)}
               className="flex items-center flex-col"
             >
-              <label htmlFor="label">Enter the text to display:</label>
+              <label htmlFor="label" className="dark:text-slate-300">
+                Enter the text to display:
+              </label>
               <input
                 className="border-2 border-blue-400 my-2"
                 id="label"
@@ -89,7 +91,9 @@ export const Generator = () => {
                   This field is required
                 </p>
               )}
-              <label htmlFor="classes">CSS classes for your text:</label>
+              <label htmlFor="classes" className="dark:text-slate-300">
+                CSS classes for your text:
+              </label>
               <input
                 id="classes"
                 {...register("classes")}
