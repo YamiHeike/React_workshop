@@ -18,7 +18,7 @@ export const Logo = () => {
       logo = <FaMeta className="w-10 h-10 text-blue-700 dark:text-slate-300" />;
       break;
     default:
-      logo = <FaReact className="w-10 h-10 dark:text-red-600" />;
+      logo = <FaReact className="w-10 h-10 text-blue-700 dark:text-red-600" />;
   }
 
   return <div className="mr-2">{logo}</div>;

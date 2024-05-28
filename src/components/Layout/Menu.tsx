@@ -6,7 +6,7 @@ import { Logo } from "../Logo";
 
 type Props = {
   to: string;
-  children: string;
+  children: string | React.ReactNode;
 };
 
 const WsNavLink = ({ to, children }: Props) => {
@@ -32,7 +32,9 @@ export const Menu = () => {
       <nav>
         <ul className="flex items-center">
           <li className="mr-3">
-            <Logo />
+            <WsNavLink to={routes.HOME.path}>
+              <Logo />
+            </WsNavLink>
           </li>
           <li className="mr-3">
             <WsNavLink to={routes.HOME.path}>Home</WsNavLink>

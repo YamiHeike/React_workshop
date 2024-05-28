@@ -13,7 +13,7 @@ export const ProductsList = () => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <Text className="text-xl">Products</Text>
+      <Text className="text-xl text-left mt-5">Products</Text>
       {
         <ul>
           {products.map((product) => (
