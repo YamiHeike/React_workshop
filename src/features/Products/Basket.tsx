@@ -8,7 +8,7 @@ export const Basket = () => {
 
   return (
     <div className="flex items-center">
-      <ShoppingCartIcon className="w-4 h-4 mr-1" />
+      <ShoppingCartIcon className="w-4 h-4 mr-1 dark:text-slate-300" />
       <span className="dark:text-slate-300"> {count}</span>
     </div>
   );

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
-import { Product } from "../../types";
+import { ProductDto } from "../../types";
 
 export interface BasketState {
-  products: Product[];
+  products: ProductDto[];
 }
 
 const initialState: BasketState = {
@@ -14,10 +14,10 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Product>) => {
+    add: (state, action: PayloadAction<ProductDto>) => {
       state.products.push(action.payload);
     },
-    remove: (state, action: PayloadAction<Product["id"]>) => {
+    remove: (state, action: PayloadAction<ProductDto["id"]>) => {
       state.products.filter((elem) => elem.id !== action.payload);
     },
   },

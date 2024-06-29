@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 import { cn } from "../../utils/cn";
 
 type Props = {
-  children: string;
+  children: string | string[];
   clasName?: string | string[];
 } & ComponentProps<"h1">;
 

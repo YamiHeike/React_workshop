@@ -1,19 +1,17 @@
 import { Button, Text } from "../../ui";
-import { type Product } from "../../types";
+import { type ProductDto } from "../../types";
 import { useAppDispatch } from "../../hooks/redux";
 import { add } from "./basketSlice";
+import { Link } from "react-router-dom";
 
-const products: Product[] = [
-  { id: 1, name: "Laptop", price: 3000 },
-  { id: 2, name: "Keyboard", price: 150 },
-  { id: 3, name: "Mouse", price: 70 },
-];
+type Props = {
+  products: ProductDto[];
+};
 
-export const ProductsList = () => {
+export const ProductsList = ({ products }: Props) => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <Text className="text-xl text-left mt-5">Products</Text>
       {
         <ul>
           {products.map((product) => (
@@ -21,9 +19,12 @@ export const ProductsList = () => {
               key={product.id}
               className="dark:text-slate-300 flex items-center my-2"
             >
-              <Text>
-                {product.name} ({product.price.toString()} zł)
-              </Text>
+              <Link
+                to={`/products/${product.id}`}
+                className="dark:hover:text-green-200 hover:text-blue-500"
+              >
+                {product.fields.name} ({product.fields.price.toString()} zł)
+              </Link>
               <Button
                 label="+"
                 className="ml-2"
