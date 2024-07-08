@@ -1,6 +1,6 @@
 import { type ProductDto } from "../types";
 
-type AirtableListResponse<T> = {
+export type AirtableListResponse<T> = {
   records: T;
 };
 
@@ -22,7 +22,12 @@ export const fetchProducts = (): Promise<
   });
 };
 
-export const fetchProduct = (id: ProductDto["id"]): Promise<ProductDto> => {
+export const fetchProduct = (
+  id: ProductDto["id"] | undefined
+): Promise<ProductDto> => {
+  if (!id) {
+    throw new Error("Invalid id");
+  }
   return fetch(`${API_BASE_URL}/shelf/${id}`, {
     headers,
   }).then((res) => {

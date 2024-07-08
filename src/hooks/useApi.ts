@@ -20,8 +20,9 @@ type S<T> =
       isError: true;
     };
 
-const useApi = <T>(fetcher: () => Promise<T>) => {
+export const useApi = <T>(fetcher: () => Promise<T>) => {
   const [state, setState] = useState<S<T>>({
+    //default: pending
     data: undefined,
     isLoading: true,
     isError: false,
@@ -47,5 +48,6 @@ const useApi = <T>(fetcher: () => Promise<T>) => {
       }
     };
     loadData();
-  }, []);
+  }, [fetcher]);
+  return { data, isLoading, isError };
 };

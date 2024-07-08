@@ -3,7 +3,12 @@ import { ProductDetails, ProductsList } from "../features";
 import { type ProductDto } from "../types";
 import { Text } from "../ui";
 import { useParams } from "react-router-dom";
-import { fetchProduct } from "../services/products";
+import {
+  AirtableListResponse,
+  fetchProduct,
+  fetchProducts,
+} from "../services/products";
+import { useApi } from "../hooks/useApi";
 
 /*const products: Product[] = [
   { id: 1, name: "Laptop", price: 3000 },
@@ -13,11 +18,14 @@ import { fetchProduct } from "../services/products";
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
-  const [data, setData] = useState<ProductDto | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  //const [data, setData] = useState<ProductDto | null>(null);
+  //const [isLoading, setIsLoading] = useState(true);
+  //const [isError, setIsError] = useState(false);
+  const { data, isLoading, isError } = useApi<ProductDto>(() =>
+    fetchProduct(id)
+  );
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (id) {
       fetchProduct(id)
         .then((responseData) => {
@@ -28,7 +36,7 @@ export const ProductDetailsPage = () => {
           setIsError(true);
         });
     }
-  }, [id]);
+  }, [id]);*/
 
   return (
     <>
