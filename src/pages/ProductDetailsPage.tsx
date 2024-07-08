@@ -3,11 +3,7 @@ import { ProductDetails, ProductsList } from "../features";
 import { type ProductDto } from "../types";
 import { Text } from "../ui";
 import { useParams } from "react-router-dom";
-import {
-  AirtableListResponse,
-  fetchProduct,
-  fetchProducts,
-} from "../services/products";
+import { fetchProduct } from "../services/products";
 import { useApi } from "../hooks/useApi";
 
 /*const products: Product[] = [
@@ -40,7 +36,6 @@ export const ProductDetailsPage = () => {
 
   return (
     <>
-      <Text>Products</Text>
       {isLoading && <p className="dark:text-white">Loading...</p>}
       {isError && <p>Oh no :( An Error has occurred!</p>}
       {data && <ProductDetails product={data} />}

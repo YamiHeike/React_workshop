@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout, UserList } from "../components";
-import { HomePage } from "../pages/HomePage copy";
+import { HomePage } from "../pages/HomePage";
 import { DynamicPage } from "../pages/DynamicPage";
 import { GeneratorPage } from "../pages/GeneratorPage";
 import { HistoryPage } from "../pages/HistoryPage";
 import { StepperPage } from "../pages/StepperPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { ProductDetailsPage } from "../pages/ProductDetailsPage";
+import { CreateProductPage } from "../pages/CreateProductPage";
 
 export const routes = {
   HOME: {
@@ -37,6 +38,9 @@ export const routes = {
   },
   PRODUCT_DETAILS: {
     path: "/products/:id",
+  },
+  CREATE_PRODUCT: {
+    path: "/products/create",
   },
 };
 
@@ -76,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path: routes.PRODUCT_DETAILS.path,
         element: <ProductDetailsPage />,
+      },
+      {
+        path: routes.CREATE_PRODUCT.path,
+        element: <CreateProductPage />,
       },
     ],
   },

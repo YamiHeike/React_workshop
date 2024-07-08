@@ -4,6 +4,8 @@ import { type ProductDto } from "../types";
 import { Text } from "../ui";
 import { type AirtableListResponse, fetchProducts } from "../services/products";
 import { useApi } from "../hooks/useApi";
+import { Link } from "react-router-dom";
+import { routes } from "../routes";
 
 /*const products: Product[] = [
   { id: 1, name: "Laptop", price: 3000 },
@@ -37,6 +39,14 @@ export const ProductsPage = () => {
   return (
     <>
       <Text>Products</Text>
+      <div>
+        <Link
+          to={routes.CREATE_PRODUCT.path}
+          className="dark:text-red-600 dark:hover:text-red-200 text-blue-800 hover:text-blue-600"
+        >
+          Create Product
+        </Link>
+      </div>
       {data && <ProductsList products={data.records} />}
       {isLoading && <p className="dark:text-slate-300">Loading...</p>}
       {isError && <p>Oh no! :( An Error has occurred</p>}
