@@ -1,4 +1,4 @@
-import { type ProductDto } from "../types";
+import { CreateProductDto, type ProductDto } from "../types";
 
 export type AirtableListResponse<T> = {
   records: T;
@@ -7,6 +7,7 @@ export type AirtableListResponse<T> = {
 const API_BASE_URL = "https://api.airtable.com/v0/appcwnUieOOxd1RMR";
 const headers = {
   Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+  "Content-type": "application/json",
 };
 
 export const fetchProducts = (): Promise<
@@ -30,6 +31,21 @@ export const fetchProduct = (
   }
   return fetch(`${API_BASE_URL}/shelf/${id}`, {
     headers,
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    throw new Error("Invalid response");
+  });
+};
+
+export const createProduct = (data: CreateProductDto): Promise<void> => {
+  //api.post('/shelf', data) - axios
+  return fetch(`${API_BASE_URL}/shelf`, {
+    headers,
+    method: "POST",
+    //Airtable-specific format
+    body: JSON.stringify({ records: [{ fields: data }] }),
   }).then((res) => {
     if (res.ok) {
       return res.json();

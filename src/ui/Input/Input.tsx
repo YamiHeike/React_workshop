@@ -1,11 +1,13 @@
 import { type ComponentPropsWithRef, forwardRef, useId, type Ref } from "react";
+import { FieldError } from "react-hook-form";
 
 type Props = {
   label: string;
+  error?: FieldError;
 } & ComponentPropsWithRef<"input">;
 
 export const Input = forwardRef(
-  ({ label, ...rest }: Props, ref: Ref<HTMLInputElement>) => {
+  ({ label, error, ...rest }: Props, ref: Ref<HTMLInputElement>) => {
     const id = useId();
     return (
       <>
@@ -18,6 +20,7 @@ export const Input = forwardRef(
           id={id}
           {...rest}
         />
+        {error && <p className="text-red-500">{error.message}</p>}
       </>
     );
   }

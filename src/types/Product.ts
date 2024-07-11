@@ -16,11 +16,16 @@ export type ProductDto = {
   };
 };
 
-export type CreateProductDto = z.infer<typeof CreateProductSchema>;
-
 export const CreateProductSchema = z.object({
   name: z.string().min(1, { message: "The title is required" }),
-  price: z.number().min(1, { message: "Invalid price" }),
+  price: z
+    .number({
+      invalid_type_error: "Enter a number",
+      required_error: "Price is required",
+    })
+    .min(1, { message: "Invalid price" }),
   genre: z.string().min(3, { message: "Invalid genre" }),
   description: z.string(),
 });
+
+export type CreateProductDto = z.infer<typeof CreateProductSchema>;
