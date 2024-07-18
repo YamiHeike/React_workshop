@@ -53,3 +53,19 @@ export const createProduct = (data: CreateProductDto): Promise<void> => {
     throw new Error("Invalid response");
   });
 };
+
+export const editProduct = (
+  data: ProductDto,
+  id: ProductDto["id"] | undefined
+): Promise<void> => {
+  return fetch(`${API_BASE_URL}/shelf/${id}`, {
+    headers,
+    method: "PUT",
+    body: JSON.stringify({ records: [{ fields: data }] }),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    throw new Error("Invalid response");
+  });
+};

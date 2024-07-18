@@ -8,6 +8,7 @@ import { StepperPage } from "../pages/StepperPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { ProductDetailsPage } from "../pages/ProductDetailsPage";
 import { CreateProductPage } from "../pages/CreateProductPage";
+import { EditProductPage } from "../pages/EditProductPage";
 
 export const routes = {
   HOME: {
@@ -41,6 +42,9 @@ export const routes = {
   },
   CREATE_PRODUCT: {
     path: "/products/create",
+  },
+  EDIT_PRODUCT: {
+    path: "/products/edit/:id",
   },
 };
 
@@ -84,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path: routes.CREATE_PRODUCT.path,
         element: <CreateProductPage />,
+      },
+      {
+        path: routes.EDIT_PRODUCT.path,
+        element: <EditProductPage />,
       },
     ],
   },

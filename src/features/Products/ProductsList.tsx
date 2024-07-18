@@ -19,17 +19,23 @@ export const ProductsList = ({ products }: Props) => {
               key={product.id}
               className="dark:text-slate-300 flex items-center my-2"
             >
+              <Button
+                label="+"
+                className="ml-2 px-3 py-1"
+                onClick={() => dispatch(add(product))}
+              />
               <Link
                 to={`/products/${product.id}`}
                 className="dark:hover:text-green-200 hover:text-blue-500"
               >
                 {product.fields.name} ({product.fields.price.toString()} zł)
               </Link>
-              <Button
-                label="+"
-                className="ml-2"
-                onClick={() => dispatch(add(product))}
-              />
+              <Link to={`/products/edit/${product.id}`}>
+                <Button
+                  label="Edit"
+                  className="px-2 py-1 bg-orange-400 shadow-none cursor-pointer dark:bg-yellow-300"
+                ></Button>
+              </Link>
             </li>
           ))}
         </ul>
