@@ -58,14 +58,20 @@ export const editProduct = (
   data: ProductDto,
   id: ProductDto["id"] | undefined
 ): Promise<void> => {
+  console.log("submitting data: ", data);
+  console.log("productID: ", id);
+  if (!id) {
+    return Promise.reject(new Error("Product ID is required"));
+  }
   return fetch(`${API_BASE_URL}/shelf/${id}`, {
     headers,
     method: "PUT",
-    body: JSON.stringify({ records: [{ fields: data }] }),
+    body: JSON.stringify({ fields: data.fields }),
   }).then((res) => {
     if (res.ok) {
       return res.json();
+    } else {
+      throw new Error("Invalid response");
     }
-    throw new Error("Invalid response");
   });
 };

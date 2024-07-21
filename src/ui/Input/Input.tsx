@@ -10,7 +10,7 @@ export const Input = forwardRef(
   ({ label, error, ...rest }: Props, ref: Ref<HTMLInputElement>) => {
     const id = useId();
     return (
-      <>
+      <div className="my-2">
         <label htmlFor={id} className="dark:text-slate-300 mx-2">
           {label}
         </label>
@@ -21,7 +21,7 @@ export const Input = forwardRef(
           {...rest}
         />
         {error && <p className="text-red-500">{error.message}</p>}
-      </>
+      </div>
     );
   }
 );

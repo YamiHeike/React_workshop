@@ -33,7 +33,7 @@ export const ProductsList = ({ products }: Props) => {
               <Link to={`/products/edit/${product.id}`}>
                 <Button
                   label="Edit"
-                  className="px-2 py-1 bg-orange-400 shadow-none cursor-pointer dark:bg-yellow-300"
+                  className="px-2 py-1 bg-orange-400 shadow-none cursor-pointer dark:bg-yellow-300 dark:text-slate-900"
                 ></Button>
               </Link>
             </li>

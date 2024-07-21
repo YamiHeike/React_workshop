@@ -1,6 +1,6 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateProductSchema, type CreateProductDto } from "../../types";
+import { FieldsSchema, type CreateProductDto } from "../../types";
 import { Button, Input } from "../../ui";
 import { ComponentProps } from "react";
 
@@ -14,7 +14,7 @@ export const CreateProductForm = ({ submitter, ...rest }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<CreateProductDto>({
-    resolver: zodResolver(CreateProductSchema),
+    resolver: zodResolver(FieldsSchema),
   });
 
   const handleCreateProductForm: SubmitHandler<CreateProductDto> = (data) => {

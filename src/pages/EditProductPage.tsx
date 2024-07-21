@@ -1,9 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Text } from "../ui";
 import { useApi } from "../hooks/useApi";
-import { CreateProductDto, ProductDto } from "../types";
+import { ProductDto } from "../types";
 import { editProduct, fetchProduct } from "../services/products";
-import { CreateProductForm } from "../features/Products/CreateProductForm";
 import { EditProductForm } from "../features/Products/EditProductForm";
 
 export const EditProductPage = () => {
@@ -13,9 +12,12 @@ export const EditProductPage = () => {
     fetchProduct(id)
   );
 
-  const handleSubmit = async (data: ProductDto) => {
-    await editProduct(data, id);
-    //navigate(routes.PRODUCTS.path);
+  let pdto: ProductDto;
+
+  const handleSubmit = async (formData: ProductDto) => {
+    console.log("Submitting to API: ", formData);
+    await editProduct(formData, id);
+    navigate("/products");
   };
 
   return (

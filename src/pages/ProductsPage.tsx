@@ -55,7 +55,7 @@ export const ProductsPage = () => {
       </div>
       {data && <ProductsList products={data.records} />}
       {isLoading && <p className="dark:text-slate-300">Loading...</p>}
-      {isError && <p>Oh no! :( An Error has occurred</p>}
+      {isError && <p>Oh no! An Error has occurred</p>}
     </>
   );
 };
