@@ -1,6 +1,6 @@
 import {
-  ChangeEventHandler,
-  MouseEventHandler,
+  type ChangeEventHandler,
+  type MouseEventHandler,
   useRef,
   useState,
   useEffect,

@@ -1,4 +1,4 @@
-import { type ComponentPropsWithRef, Ref, forwardRef, useId } from "react";
+import { type ComponentPropsWithRef, type Ref, forwardRef, useId } from "react";
 import { cn } from "../../utils/cn";
 import { FieldError } from "react-hook-form";
 

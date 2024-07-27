@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { CreateProductForm } from "../features/Products/CreateProductForm";
 import { createProduct } from "../services/products";
-import { CreateProductDto } from "../types";
-import { Button, Header } from "../ui";
+import { type CreateProductDto } from "../types";
+import { Header } from "../ui";
 import { routes } from "../routes";
 
 export const CreateProductPage = () => {

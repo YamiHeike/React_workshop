@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from "react";
+import { type MouseEventHandler, useState } from "react";
 import { Input, Text, Button } from "../../ui";
 import { useForm, type SubmitHandler } from "react-hook-form";
 

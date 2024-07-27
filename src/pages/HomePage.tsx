@@ -1,5 +1,4 @@
-import { ThemeContextProvider } from "../components";
-import { Header, Text } from "../ui";
+import { Header } from "../ui";
 
 export const HomePage = () => {
   const airtableAPIToken = import.meta.env.VITE_AIRTABLE_API_TOKEN;

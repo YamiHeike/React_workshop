@@ -2,8 +2,7 @@ import { Button, Header, Text } from "../../ui";
 import { type ProductDto } from "../../types";
 import { useAppDispatch } from "../../hooks/redux";
 import { add } from "./basketSlice";
-import { MouseEventHandler, useState } from "react";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { type MouseEventHandler, useState } from "react";
 
 type Props = {
   product: ProductDto;

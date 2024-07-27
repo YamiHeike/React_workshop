@@ -1,7 +1,7 @@
 import { type Users } from "../../hooks/useSort";
 import { Button, Text } from "../../ui";
 import { sortOptions, sortDirections, useSort } from "../../hooks/useSort";
-import { MouseEventHandler } from "react";
+import { type MouseEventHandler } from "react";
 import ArrowDownIcon from "@heroicons/react/24/outline/ArrowDownIcon";
 import ArrowUpIcon from "@heroicons/react/24/outline/ArrowUpIcon";
 
@@ -51,26 +51,22 @@ export const UserList = () => {
 
   return (
     <div className="my-3">
-      <Text className="text-5xl ">Current Users</Text>
+      <div className="flex justify-center items-center">
+        <Text className="text-5xl ">Current Users</Text>
+        <ArrowUpIcon
+          className="h-5 w-5 cursor-pointer dark:text-slate-300 ml-3"
+          onClick={sortAscending}
+        />
+        <ArrowDownIcon
+          className="h-5 w-5 cursor-pointer dark:text-slate-300"
+          onClick={sortDescending}
+        />
+      </div>
       <div className="flex flex-col items-center justify-center my-4">
-        <Text className="text-2xl font-thin">
-          Would you like to sort this list?
-        </Text>
-        <div className="flex">
-          <ArrowUpIcon
-            className="h-5 w-5 cursor-pointer dark:text-slate-300"
-            onClick={sortAscending}
-          />
-          <ArrowDownIcon
-            className="h-5 w-5 cursor-pointer dark:text-slate-300"
-            onClick={sortDescending}
-          />
-        </div>
-
         <div>
-          <Button label="Sort by Nickname" onClick={handleSortByNickname} />
-          <Button label="Sort by Id" onClick={handleSortById} />
-          <Button label="Sort by Age" onClick={handleSortByAge} />
+          <Button label="Nickname" onClick={handleSortByNickname} />
+          <Button label="Id" onClick={handleSortById} />
+          <Button label="Age" onClick={handleSortByAge} />
         </div>
       </div>
 
