@@ -1,4 +1,4 @@
-import { Button, Text } from "../../ui";
+import { Button } from "../../ui";
 import { type ProductDto } from "../../types";
 import { useAppDispatch } from "../../hooks/redux";
 import { add } from "./basketSlice";

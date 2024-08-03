@@ -1,5 +1,4 @@
-import { mergeOptions } from "@apollo/client";
-import { ComponentProps, useId } from "react";
+import { type ComponentProps, useId } from "react";
 import { v4 as uuid } from "uuid";
 
 type Props = {

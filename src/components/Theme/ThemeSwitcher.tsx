@@ -1,5 +1,4 @@
-import { MouseEventHandler, useState } from "react";
-import { Button } from "../../ui";
+import { type MouseEventHandler, useState } from "react";
 import { Theme, getMode, useThemeContext } from "./ThemeContext";
 import SunIcon from "@heroicons/react/24/outline/SunIcon";
 import MoonIcon from "@heroicons/react/24/outline/MoonIcon";

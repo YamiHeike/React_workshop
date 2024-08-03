@@ -2,7 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldsSchema, type CreateProductDto } from "../../types";
 import { Button, Input } from "../../ui";
-import { ComponentProps } from "react";
+import { type ComponentProps } from "react";
 
 type Props = {
   submitter: (data: CreateProductDto) => void;

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes";
 import { Basket } from "../../features";
-import { CustomerContextProvider, CustomerSwitcher } from "../Customer";
+import { CustomerSwitcher } from "../Customer";
 import { Logo } from "../Logo";
 
 type Props = {
@@ -43,13 +43,7 @@ export const Menu = () => {
             <WsNavLink to={routes.DYNAMIC.path}>Dynamic Form</WsNavLink>
           </li>
           <li className="mr-3">
-            <WsNavLink to={routes.GENERATOR.path}>Generator</WsNavLink>
-          </li>
-          <li className="mr-3">
             <WsNavLink to={routes.HISTORY.path}>History</WsNavLink>
-          </li>
-          <li className="mr-3">
-            <WsNavLink to={routes.STEPPER.path}>Stepper</WsNavLink>
           </li>
           <li className="mr-3">
             <WsNavLink to={routes.USERLIST.path}>User List</WsNavLink>

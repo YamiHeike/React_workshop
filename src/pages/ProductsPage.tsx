@@ -1,18 +1,11 @@
-import { useEffect, useState } from "react";
 import { ProductsList } from "../features";
-import { type ProductDto } from "../types";
+
 import { Text } from "../ui";
-import { type AirtableListResponse, fetchProducts } from "../services/products";
-import { useApi } from "../hooks/useApi";
+import { fetchProducts } from "../services/products";
+
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { useQuery } from "@tanstack/react-query";
-
-/*const products: Product[] = [
-  { id: 1, name: "Laptop", price: 3000 },
-  { id: 2, name: "Keyboard", price: 150 },
-  { id: 3, name: "Mouse", price: 70 },x
-];*/
 
 export const ProductsPage = () => {
   //const [data, setData] = useState<ProductDto[]>([]);

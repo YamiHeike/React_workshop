@@ -1,4 +1,4 @@
-import { CreateProductDto, type ProductDto } from "../types";
+import type { CreateProductDto, ProductDto } from "../types";
 
 export type AirtableListResponse<T> = {
   records: T;

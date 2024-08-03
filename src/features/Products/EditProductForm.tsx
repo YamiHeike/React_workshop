@@ -1,8 +1,8 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ProductDto, ProductDtoSchema } from "../../types";
+import { type ProductDto, ProductDtoSchema } from "../../types";
 import { Button, Header, Input, TextArea } from "../../ui";
-import React, { ComponentProps } from "react";
+import { type ComponentProps } from "react";
 
 type Props = {
   data: ProductDto;
@@ -29,7 +29,6 @@ export const EditProductForm = ({ data, submitter, ...rest }: Props) => {
 
   const handleEditProductForm: SubmitHandler<ProductDto> = (data) => {
     submitter(data);
-    console.log("Success");
   };
   return (
     <form onSubmit={handleSubmit(handleEditProductForm)} {...rest}>
